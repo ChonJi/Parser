@@ -45,6 +45,7 @@ p = Parser('test.txt')
 p.print_file()
 print()
 p.count_words('dolore')
+print()
 p.print_list()
 
 
