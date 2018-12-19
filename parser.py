@@ -5,19 +5,23 @@ class Parser:
 
     file = None
     my_list = []
+    document = None
 
-    def parse_file(self, document):
-        with codecs.open(document, 'r', 'utf-8') as self.file:
+    def __init__(self, document):
+        self.document = document
+
+    def parse_file(self):
+        with codecs.open(self.document, 'r', 'utf-8') as self.file:
             return self.file.read()
 
-    def print_file(self, document):
-        print(self.parse_file(document))
+    def print_file(self):
+        print(self.parse_file())
 
-    def count_words(self, document, searched_phase):
+    def count_words(self, searched_phase):
 
         searched_word_number = 0
         all_words_number = 0
-        file = re.findall('\w+', self.parse_file(document).lower())
+        file = re.findall('\w+', self.parse_file().lower())
 
         for word in file:
             self.my_list.append(word)
@@ -37,10 +41,10 @@ class Parser:
 
 
 
-p = Parser()
-p.print_file('test.txt')
+p = Parser('test.txt')
+p.print_file()
 print()
-p.count_words('test.txt', 'dolore')
+p.count_words('dolore')
 p.print_list()
 
 
