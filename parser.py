@@ -8,8 +8,7 @@ class Parser:
 
     def parse_file(self, document):
         with codecs.open(document, 'r', 'utf-8') as self.file:
-            file = self.file.read()
-            return file
+            return self.file.read()
 
     def print_file(self, document):
         print(self.parse_file(document))
@@ -29,6 +28,7 @@ class Parser:
 
             else:
                 all_words_number += 1
+
         print(searched_phase.capitalize() + ', the number of occurrences: ' + str(searched_word_number))
         print('Number of words in document: ' + str(all_words_number))
 
