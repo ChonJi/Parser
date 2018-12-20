@@ -3,28 +3,28 @@ import re
 
 class Parser:
 
-    file = None
-    my_list = []
-    document = None
+    __file__ = None
+    __my_list__ = []
+    __document__ = None
 
     def __init__(self, document):
-        self.document = document
+        self.__document__ = document
 
-    def parse_file(self):
-        with codecs.open(self.document, 'r', 'utf-8') as self.file:
-            return self.file.read()
+    def __parse_file__(self):
+        with codecs.open(self.__document__, 'r', 'utf-8') as self.__file__:
+            return self.__file__.read()
 
     def print_file(self):
-        print(self.parse_file())
+        print(self.__parse_file__())
 
     def count_words(self, searched_phase):
 
         searched_word_number = 0
         all_words_number = 0
-        file = re.findall('\w+', self.parse_file().lower())
+        file = re.findall('\w+', self.__parse_file__().lower())
 
         for word in file:
-            self.my_list.append(word)
+            self.__my_list__.append(word)
             if searched_phase.lower() in word:
                 searched_word_number += 1
                 all_words_number += 1
@@ -37,7 +37,7 @@ class Parser:
         print('Number of words in document: ' + str(all_words_number))
 
     def print_list(self):
-        print(self.my_list)
+        print(self.__my_list__)
 
 
 
@@ -47,6 +47,7 @@ print()
 p.count_words('dolore')
 print()
 p.print_list()
+
 
 
 
